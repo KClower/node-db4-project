@@ -1,0 +1,40 @@
+select * from recipes;
+
+select * from steps;
+
+select * from ingredients;
+
+select * from step_ingredients;
+
+select * from step_ingredients;
+
+select * from instructions;
+
+select *
+from steps s
+join recipes r on r.id = s.recipe_id
+where r.id = 1;
+
+select 
+r.name
+,s.id as stepid
+,s.description step_desc
+,i.name ingredient_name
+from steps s
+join step_ingredients si on si.step_id = s.id
+join ingredients i on si.ingredient_id = i.id
+join recipes r on r.id = s.recipe_id
+where r.id = 1
+order by s.id;
+
+
+
+select * 
+from ingredients i
+join recipe_ingredients ri on ri.ingredient_id = i.id
+join recipes r on r.id = ri.recipe_id
+where r.id = 2;
+
+select * from steps s
+join instructions i on i.step_id = s.id
+where s.id in (6,7,8,9,10,11,12);
